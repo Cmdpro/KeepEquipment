@@ -12,7 +12,17 @@ import java.util.Set;
 public class KeepEquipmentMixinPlugin implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        return !mixinClassName.equals("com.cmdpro.keepequipment.mixin.CuriosEventHandlerMixin") || LoadingModList.get().getModFileById("curios") != null;
+        if (mixinClassName.equals("com.cmdpro.keepequipment.mixin.AccessoriesEventHandlerMixin")) {
+            return LoadingModList.get().getModFileById("accessories") != null;
+        }
+        if (mixinClassName.equals("com.cmdpro.keepequipment.mixin.CuriosEventHandlerMixin")) {
+            if (LoadingModList.get().getModFileById("accessories") == null) {
+                return LoadingModList.get().getModFileById("curios") != null;
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
