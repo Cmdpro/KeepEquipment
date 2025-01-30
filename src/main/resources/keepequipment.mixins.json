@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.cmdpro.keepequipment.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "plugin": "com.cmdpro.keepequipment.KeepEquipmentMixinPlugin",
+  "mixins": [
+    "PlayerMixin",
+    "ServerPlayerMixin",
+    "CuriosEventHandlerMixin"
+  ],
+  "client": [
+  ]
+}
